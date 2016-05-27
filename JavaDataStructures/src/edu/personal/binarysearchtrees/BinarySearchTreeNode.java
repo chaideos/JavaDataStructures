@@ -45,4 +45,10 @@ public class BinarySearchTreeNode
 	{
 		return data;
 	}
+
+	@Override
+	public String toString()
+	{
+		return String.valueOf(this.data);
+	}
 }

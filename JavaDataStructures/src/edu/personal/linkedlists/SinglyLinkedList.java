@@ -37,7 +37,7 @@ public class SinglyLinkedList
 		{
 			if (current.getData() == data)
 			{
-
+				// Add something
 			}
 		}
 		return current;
