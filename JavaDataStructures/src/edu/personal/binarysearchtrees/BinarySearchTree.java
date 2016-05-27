@@ -22,7 +22,17 @@ public class BinarySearchTree
 			{
 				if (data < current.getData())
 				{
-
+					if (current.getLeft() == null)
+						current.setLeft(node);
+					else
+						current = current.getLeft();
+				}
+				else if (data >= current.getData())
+				{
+					if (current.getRight() == null)
+						current.setRight(node);
+					else
+						current = current.getRight();
 				}
 			}
 		}
