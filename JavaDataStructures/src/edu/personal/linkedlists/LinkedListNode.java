@@ -1,30 +1,30 @@
 package edu.personal.linkedlists;
 
 // TODO: Convert this class to use generics
-public class LinkedListNode
+public class LinkedListNode<D>
 {
 
 	/**
 	 * An element representing data
 	 */
-	private int data;
+	private D data;
 
-	public int getData()
+	public D getData()
 	{
 		return data;
 	}
 
-	public void setData(int data)
+	public void setData(D data)
 	{
 		this.data = data;
 	}
 
-	public LinkedListNode getNext()
+	public LinkedListNode<D> getNext()
 	{
 		return next;
 	}
 
-	public void setNext(LinkedListNode next)
+	public void setNext(LinkedListNode<D> next)
 	{
 		this.next = next;
 	}
@@ -32,14 +32,14 @@ public class LinkedListNode
 	/**
 	 * A pointer or reference to the next node.
 	 */
-	private LinkedListNode next;
+	private LinkedListNode<D> next;
 
-	public LinkedListNode(int data)
+	public LinkedListNode(D data)
 	{
 		this(data, null);
 	}
 
-	public LinkedListNode(int data, LinkedListNode nextNode)
+	public LinkedListNode(D data, LinkedListNode<D> nextNode)
 	{
 		this.data = data;
 		this.next = nextNode;

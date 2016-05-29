@@ -1,47 +1,47 @@
 package edu.personal.binarysearchtrees;
 
-public class BinarySearchTreeNode
+public class BinarySearchTreeNode<D>
 {
-	private int data;
+	private D data;
 
-	private BinarySearchTreeNode left;
+	private BinarySearchTreeNode<D> left;
 
-	private BinarySearchTreeNode right;
+	private BinarySearchTreeNode<D> right;
 
-	public BinarySearchTreeNode(int data, BinarySearchTreeNode left,
-			BinarySearchTreeNode right)
+	public BinarySearchTreeNode(D data, BinarySearchTreeNode<D> left,
+			BinarySearchTreeNode<D> right)
 	{
 		this.data = data;
 		this.left = left;
 		this.right = right;
 	}
 
-	public BinarySearchTreeNode(int data)
+	public BinarySearchTreeNode(D data)
 	{
 		this(data, null, null);
 	}
 
-	public BinarySearchTreeNode getLeft()
+	public BinarySearchTreeNode<D> getLeft()
 	{
 		return left;
 	}
 
-	public void setLeft(BinarySearchTreeNode left)
+	public void setLeft(BinarySearchTreeNode<D> left)
 	{
 		this.left = left;
 	}
 
-	public BinarySearchTreeNode getRight()
+	public BinarySearchTreeNode<D> getRight()
 	{
 		return right;
 	}
 
-	public void setRight(BinarySearchTreeNode right)
+	public void setRight(BinarySearchTreeNode<D> right)
 	{
 		this.right = right;
 	}
 
-	public int getData()
+	public D getData()
 	{
 		return data;
 	}

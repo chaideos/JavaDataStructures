@@ -1,21 +1,27 @@
 package edu.personal.linkedlists;
 
-public class SinglyLinkedList
+public class SinglyLinkedList<D>
 {
 
-	private LinkedListNode head;
+	private LinkedListNode<D> head;
 
 	private int count;
 
 	public SinglyLinkedList()
 	{
-		this.head = null;
+		this(null);
 		this.count = 0;
 	}
 
-	public void add(int element)
+	public SinglyLinkedList(LinkedListNode<D> head)
 	{
-		LinkedListNode addedNode = new LinkedListNode(element);
+		this.head = head;
+		this.count = 1;
+	}
+
+	public void add(D element)
+	{
+		LinkedListNode<D> addedNode = new LinkedListNode<>(element);
 		count++;
 		if (head == null)
 		{
@@ -23,16 +29,16 @@ public class SinglyLinkedList
 		}
 		else
 		{
-			LinkedListNode current = head;
+			LinkedListNode<D> current = head;
 			while (current.getNext() != null)
 				current = current.getNext();
 			current.setNext(addedNode);
 		}
 	}
 
-	public LinkedListNode remove(int data)
+	public LinkedListNode<D> remove(D data)
 	{
-		LinkedListNode current = head;
+		LinkedListNode<D> current = head;
 		if (!isEmpty())
 		{
 			if (current.getData() == data)
@@ -43,17 +49,17 @@ public class SinglyLinkedList
 		return current;
 	}
 
-	public LinkedListNode reverse()
+	public LinkedListNode<D> reverse()
 	{
 		return head;
 	}
 
-	public LinkedListNode sort()
+	public LinkedListNode<D> sort()
 	{
 		return head;
 	}
 
-	public LinkedListNode removeDuplicates()
+	public LinkedListNode<D> removeDuplicates()
 	{
 		return head;
 	}
@@ -74,7 +80,7 @@ public class SinglyLinkedList
 		if (!isEmpty())
 		{
 			StringBuilder builder = new StringBuilder();
-			LinkedListNode current = head;
+			LinkedListNode<D> current = head;
 			while (current.getNext() != null)
 			{
 				builder.append(current.toString() + "-->");

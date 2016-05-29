@@ -3,34 +3,43 @@ package edu.personal.binarysearchtrees;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class BinarySearchTree
+public class BinarySearchTree<D extends Comparable<D>> implements Tree<D>
 {
 
-	private BinarySearchTreeNode root;
+	private BinarySearchTreeNode<D> root;
 
-	public BinarySearchTreeNode add(int data)
+	private int count;
+
+	public BinarySearchTreeNode<D> add(D data)
 	{
-		BinarySearchTreeNode node = new BinarySearchTreeNode(data);
+		BinarySearchTreeNode<D> node = new BinarySearchTreeNode<>(data);
+		count++;
 		if (root == null)
 		{
 			root = node;
 		}
 		else
 		{
-			BinarySearchTreeNode current = root;
+			BinarySearchTreeNode<D> current = root;
 			while (current != null)
 			{
-				if (data < current.getData())
+				if (data.compareTo(current.getData()) < 0)
 				{
 					if (current.getLeft() == null)
+					{
 						current.setLeft(node);
+						current = null;
+					}
 					else
 						current = current.getLeft();
 				}
-				else if (data >= current.getData())
+				else
 				{
 					if (current.getRight() == null)
+					{
 						current.setRight(node);
+						current = null;
+					}
 					else
 						current = current.getRight();
 				}
@@ -40,24 +49,52 @@ public class BinarySearchTree
 		return root;
 	}
 
+	/**
+	 * Checks whether the tree is empty or not
+	 * 
+	 * @return
+	 */
+	@Override
 	public boolean isEmpty()
 	{
 		return this.root == null;
 	}
 
-	public void bfs()
+	@Override
+	public int size()
 	{
-		Queue<BinarySearchTreeNode> bfsQueue = new LinkedList<>();
+		return count;
+	}
+
+	/**
+	 * Returns a space separated list of a breadth first search traversal
+	 * 
+	 * @return
+	 */
+	public String bfs()
+	{
+		StringBuilder builder = new StringBuilder();
+		Queue<BinarySearchTreeNode<D>> bfsQueue = new LinkedList<>();
 		if (!isEmpty())
 		{
 			bfsQueue.add(root);
 			while (!bfsQueue.isEmpty())
 			{
-				BinarySearchTreeNode visitedNode = bfsQueue.poll();
-				System.out.println(visitedNode);
-				bfsQueue.add(visitedNode.getLeft());
-				bfsQueue.add(visitedNode.getRight());
+				BinarySearchTreeNode<D> visitedNode = bfsQueue.poll();
+				builder.append(visitedNode.getData() + " ");
+				if (visitedNode.getLeft() != null)
+					bfsQueue.add(visitedNode.getLeft());
+				if (visitedNode.getRight() != null)
+					bfsQueue.add(visitedNode.getRight());
 			}
 		}
+		return builder.toString().trim();
 	}
+
+	@Override
+	public boolean contains(D data)
+	{
+		return false;
+	}
+
 }
