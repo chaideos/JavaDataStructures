@@ -48,7 +48,7 @@ public class LinkedListNode<D>
 	@Override
 	public String toString()
 	{
-		return "Data: " + data;
+		return String.valueOf(data);
 	}
 
 }
