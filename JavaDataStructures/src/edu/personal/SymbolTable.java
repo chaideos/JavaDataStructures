@@ -6,7 +6,7 @@ package edu.personal;
  * @param <Key>
  * @param <Value>
  */
-interface SymbolTable<Key extends Comparable<Key>, Value>
+interface SymbolTable<Key, Value>
 {
 	void put(Key key, Value value);
 
