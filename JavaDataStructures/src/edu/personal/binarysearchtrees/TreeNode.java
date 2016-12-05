@@ -8,8 +8,7 @@ public class TreeNode<D>
 
 	private TreeNode<D> right;
 
-	public TreeNode(D data, TreeNode<D> left,
-			TreeNode<D> right)
+	public TreeNode(D data, TreeNode<D> left, TreeNode<D> right)
 	{
 		this.data = data;
 		this.left = left;
