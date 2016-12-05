@@ -8,6 +8,6 @@ public interface Tree<D extends Comparable<D>>
 
 	boolean contains(D data);
 
-	BinarySearchTreeNode<D> add(D data);
+	TreeNode<D> add(D data);
 
 }

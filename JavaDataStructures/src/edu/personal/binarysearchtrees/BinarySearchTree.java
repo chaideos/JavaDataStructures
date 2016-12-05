@@ -6,13 +6,13 @@ import java.util.Queue;
 public class BinarySearchTree<D extends Comparable<D>> implements Tree<D>
 {
 
-	private BinarySearchTreeNode<D> root;
+	private TreeNode<D> root;
 
 	private int count;
 
-	public BinarySearchTreeNode<D> add(D data)
+	public TreeNode<D> add(D data)
 	{
-		BinarySearchTreeNode<D> node = new BinarySearchTreeNode<>(data);
+		TreeNode<D> node = new TreeNode<>(data);
 		count++;
 		if (root == null)
 		{
@@ -20,7 +20,7 @@ public class BinarySearchTree<D extends Comparable<D>> implements Tree<D>
 		}
 		else
 		{
-			BinarySearchTreeNode<D> current = root;
+			TreeNode<D> current = root;
 			while (current != null)
 			{
 				if (data.compareTo(current.getData()) < 0)
@@ -74,13 +74,13 @@ public class BinarySearchTree<D extends Comparable<D>> implements Tree<D>
 	public String bfs()
 	{
 		StringBuilder builder = new StringBuilder();
-		Queue<BinarySearchTreeNode<D>> bfsQueue = new LinkedList<>();
+		Queue<TreeNode<D>> bfsQueue = new LinkedList<>();
 		if (!isEmpty())
 		{
 			bfsQueue.add(root);
 			while (!bfsQueue.isEmpty())
 			{
-				BinarySearchTreeNode<D> visitedNode = bfsQueue.poll();
+				TreeNode<D> visitedNode = bfsQueue.poll();
 				builder.append(visitedNode.getData() + " ");
 				if (visitedNode.getLeft() != null)
 					bfsQueue.add(visitedNode.getLeft());
